@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Controle de Materiais</title>
+</head>
+<body>
+	<h1>Adicionar Usuários</h1>
+	
+	<form action="/materiais" method="post">
+	
+			<div>
+				<input type="hidden" th:field="*{id}" readonly="readonly">
+			</div>
+			
+			<div>
+				<label>Nome:</label> <input type="text" th:field="*{nome}">
+				<p th:errors="*{nome}"> </p>
+			</div>
+
+			<div>
+				<label>Quantidade:</label> <input type="text" th:field="*{quantidade}">
+				<p th:errors="*{quantidade}"> </p>
+			</div>
+
+			<div>
+				<label>Data:</label> <input type="date" th:field="*{data}">
+				<p th:errors="*{data}"> </p>
+			</div>
+
+			<div>
+				<label>Horario:</label> <input type="time" th:field="*{horario}">
+				<p th:errors="*{horario}"> </p>
+			</div>
+
+			<div>
+				<button class="waves-effect waves-light btn" type="submit">Salvar</button>
+				<button class="waves-effect waves-light btn" type="reset">Limpar</button>
+			</div>
+	
+	</form>
+</body>
+</html>

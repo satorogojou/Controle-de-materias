@@ -16,7 +16,7 @@ public class MateriaisController {
 	
 	@RequestMapping("/materiais/form")
 	public String form() {
-		return "formMateriais";
+		return "materiais/formMateriais";
 	}
 	@PostMapping("/materiais")
 	public String adicionar(Materiais material) {

@@ -19,7 +19,6 @@ public class Materiais {
 	private Long id;
 	
 	
-	private String nome;
 	private String material;
 	private Number quantidade;
 	@DateTimeFormat(pattern = "yyyy-MM-dds")
@@ -31,12 +30,6 @@ public class Materiais {
 	}
 	public void setId(Long id) {
 		this.id = id;
-	}
-	public String getNome() {
-		return nome;
-	}
-	public void setNome(String nome) {
-		this.nome = nome;
 	}
 	public Number getQuantidade() {
 		return quantidade;
@@ -59,7 +52,7 @@ public class Materiais {
 	
 	@Override
 	public String toString() {
-		return "Materiais [id=" + id + ", nome=" + nome + ", quantidade=" + quantidade + ", data=" + data + ", horário="
+		return "Materiais [id=" + id + ", quantidade=" + quantidade + ", data=" + data + ", horário="
 				+ horário + ", material=" + material + "]";
 	}
 	public String getMaterial() {

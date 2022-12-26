@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<div th:replaces="~{menu :: menu}"></div>
+
+	<div class="container">
+
+		<h1>Lista dos empréstimos</h1>
+		
+		<p th:if="${mensagem}" th:text="${mensagem}"> </p>
+
+		<table class="highligth">
+			<thead>
+
+				<tr>
+					<th>Id</th>
+					<th>Nome</th>
+					<th>Material</th>
+					<th>Quantidade </th>
+					<th>Data</th>
+					<th>Horário de empréstimo</th>
+					<th>Horário de devolução </th>
+				</tr>
+
+			</thead>
+
+			<tbody>
+
+				<tr th:each="m : ${materiais}">
+					<td th:text="${m.id}">1</td>
+					<td><a th:href="@{/materiais/{id}(id=${m.id})}"><span
+							th:text="${m.nome}">Luiz Manoel></span></a></td>
+					<td th:text="${m.material}">ifrn campus lajes</td>
+					<td th:texte="#{m.quantidade}">2</td>
+					<td th:text="${#temporals.format(m.data)}">31/08/2022</td>
+					<td th:text="${m.horário}">17:17</td>
+					<td th:text="${m.horariodevolução}">17:45</td>
+					<td><a th:href="@{/materiais/{id}/selecionar(id=${m.id})}"> <i
+							class="material-icons">edit</i>
+					</a> <a th:href="@{/materiais/{id}/remover(id=${m.id})}"> <i
+							class="material-icons">delete</i>
+					</a></td>
+				</tr>
+
+			</tbody>
+		</table>
+
+	</div>
+</body>
+</html>

@@ -24,6 +24,7 @@ public class Materiais {
 	@DateTimeFormat(pattern = "yyyy-MM-dds")
 	private LocalDate data;
 	private LocalTime horário;
+	private LocalTime horariodevolução;
 	
 	public Long getId() {
 		return id;
@@ -33,6 +34,12 @@ public class Materiais {
 	}
 	public Number getQuantidade() {
 		return quantidade;
+	}
+	public LocalTime getHorariodevolução() {
+		return horariodevolução;
+	}
+	public void setHorariodevolução(LocalTime horariodevolução) {
+		this.horariodevolução = horariodevolução;
 	}
 	public void setQuantidade(Number quantidade) {
 		this.quantidade = quantidade;
@@ -52,7 +59,7 @@ public class Materiais {
 	
 	@Override
 	public String toString() {
-		return "Materiais [id=" + id + ", quantidade=" + quantidade + ", data=" + data + ", horário="
+		return "Materiais [id=" + id + ", quantidade=" + quantidade + ",horariodevolução="+ horariodevolução + " data=" + data + ", horário="
 				+ horário + ", material=" + material + "]";
 	}
 	public String getMaterial() {

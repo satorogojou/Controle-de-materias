@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<div th:replaces="~{menu :: menu}"></div>
+
+	<div class="container">
+
+		<h1>Detalhes dos controles de materiais</h1>
+
+		<p th:if="${mensagem}" th:text="${mensagem}"></p>
+
+		<div class="row">
+			<div class="col s12">
+				<div class="card">
+					<div class="card-content">
+						<span class="card-title">Controle de Materiais</span>
+						<p>
+							<strong>Id: </strong><span th:text="${material.id}">1</span>
+						</p>
+						<p>
+							<strong>Nome: </strong><span th:text="${ususario.nome}">Luiz
+								Manoel</span>
+						</p>
+						<p>
+							<strong>Material: </strong><span th:text="${material.material}">ifrn
+								campus lajes</span>
+						</p>
+						<p>
+							<strong>Quantidade: </strong><span
+								th:text="${material.quantidade}">ifrn campus lajes</span>
+						</p>
+						<p>
+							<strong>Data: </strong><span th:text="${material.data}">22/10/2022</span>
+						</p>
+						<p>
+							<strong>Horario do empréstimo: </strong><span
+								th:text="${material.horário}">17:59</span>
+						</p>
+						<p>
+							<strong>Horário de devolução: </strong><span
+								th:text="${material.horariodevolução}">ifrn campus lajse</span>
+						</p>
+
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+</body>
+</html>

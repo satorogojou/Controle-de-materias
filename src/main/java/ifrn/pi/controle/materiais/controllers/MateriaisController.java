@@ -3,7 +3,7 @@ package ifrn.pi.controle.materiais.controllers;
 import java.util.List;
 import java.util.Optional;
 
-import javax.validation.Valid;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -25,7 +25,7 @@ public class MateriaisController {
 	private MateriaisRespository mr;
 
 	@RequestMapping("/materiais/form")
-	public String form(Materiais materiql) {
+	public String form(Materiais material) {
 		return "materiais/formMateriais";
 	}
 
@@ -40,7 +40,7 @@ public class MateriaisController {
 	}
 
 	@PostMapping
-	public String Salvar(@valid Materiais material, BindingResult resultado, RedirectAttributes attributes) {
+	public String Salvar( Materiais material, BindingResult resultado, RedirectAttributes attributes) {
 
 		if (resultado.hasErrors()) {
 			return form(material);

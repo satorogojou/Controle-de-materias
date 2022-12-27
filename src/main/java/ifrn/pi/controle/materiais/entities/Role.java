@@ -3,7 +3,13 @@ package ifrn.pi.controle.materiais.entities;
 import java.util.ArrayList;
 import java.util.List;
 
-import jakarta.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.Table;
 
 //Entidade 'roles' do banco de dados
 //Responsável por guardar os diferentes tipos de papeis de usuário.

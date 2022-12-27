@@ -26,10 +26,10 @@ public class WebSecurityConfig {
 
 	@Bean
 	public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-		http.csrf().disable()
+		HttpSecurity security = http.csrf().disable()
 				.authorizeHttpRequests(
-						(authorize) -> authorize.requestMatchers("/resources/**", "/register/**", "/home", "/default")
-								.permitAll().requestMatchers("/accounts").hasRole("ADMIN"))
+						(authorize) -> authorize.regexMatchers("/resources/**", "/register/**", "/home", "/default")
+								.permitAll().antMatchers("/accounts").hasRole("ADMIN"))
 				.formLogin((form) -> form.loginPage("/login").loginProcessingUrl("/login").defaultSuccessUrl("/default")
 						.permitAll())
 				.logout((logout) -> logout.logoutRequestMatcher(new AntPathRequestMatcher("/logout")).permitAll());
@@ -39,7 +39,7 @@ public class WebSecurityConfig {
 
 	@Autowired
 	public void ConfigureGlobal(AuthenticationManagerBuilder authorization) throws Exception {
-		authorization.userDetailsService(this.userDetailsService).passwordEncoder(this.encoder());
+		authorization.userDetailsService(this.userDetailsService).passwordEncoder(WebSecurityConfig.encoder());
 	}
 
 }

@@ -6,6 +6,7 @@ import java.util.Optional;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -29,6 +30,7 @@ public class MateriaisController {
 		return "materiais/formMateriais";
 	}
 
+	@PreAuthorize("hasRole('ROLE_ADMIN')")
 	@PostMapping("/materiais")
 	public String adicionar(Materiais material) {
 
@@ -38,7 +40,8 @@ public class MateriaisController {
 		return "material-adicionado";
 
 	}
-
+	
+	@PreAuthorize("hasRole('ROLE_ADMIN')")
 	@PostMapping
 	public String Salvar( Materiais material, BindingResult resultado, RedirectAttributes attributes) {
 
@@ -59,6 +62,7 @@ public class MateriaisController {
 		return mv;
 	}
 	
+	@PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_USER')")
 	@GetMapping("{id}/remover")
 	public String apagar(@PathVariable Long id, RedirectAttributes attributes) {
 		
